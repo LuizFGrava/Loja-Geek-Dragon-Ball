@@ -8,6 +8,9 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.min.css">
+
     <!--Css-->
     <link rel="stylesheet" href="scroll.css">
     <link rel="stylesheet" href="style.css">
@@ -44,8 +47,9 @@
                 </nav>
             </div>
             <div class="socials">
-                <button>
+                <button type="button" data-toggle="modal" data-target="#modalCarrinho">
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="contador-carrinho" class="badge-carrinho" style="display: none;">0</span>
                 </button>
                 <a href="cadastro.html" target="_blank" rel="noopener noreferrer">
                     <button>
@@ -153,9 +157,9 @@
                 <div class="card1-1">
                     <img src="img/af1.jpeg" class="card-img-top" alt="Goku Ssj3">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>AF - Goku SSJ3</strong></h6>
-                        <R1 class="Preco">R$299,99</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item1" class="card-title"><strong>AF - Goku SSJ3</strong></h6>
+                        <R1 id="pr-item1" value="299.99" class="Preco">R$299,99</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -164,10 +168,10 @@
                     <img src="img/af2.jpeg" class="card-img-top" alt="GokuBulma">
                     <div class="card-body">
                         <div>
-                        <h6 class="card-title"><strong>AF - Goku e Bulma Criança</strong></h6>
-                        <R1 class="Preco">R$249,99</R1>
+                        <h6 id="nm-item2" class="card-title"><strong>AF - Goku e Bulma Criança</strong></h6>
+                        <R1 id="pr-item2" value="249.99" class="Preco">R$249,99</R1>
                         </div>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -175,9 +179,9 @@
                 <div class="card1-3">
                     <img src="img/af3.jpeg" class="card-img-top" alt="GokuMUI">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>AF - Goku Instinto Superior</strong></h6>
-                        <R1 class="Preco">R$120,00</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item3" class="card-title"><strong>AF - Goku Instinto Superior</strong></h6>
+                        <R1 id="pr-item3" value="120.00" class="Preco">R$120,00</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -185,9 +189,9 @@
                 <div class="card1-4">
                     <img src="img/af4.jpeg" class="card-img-top" alt="SrKaioh">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>AF - Senhor Kaioh do Oeste</strong></h6>
-                        <R1 class="Preco">R$90,00</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item4" class="card-title"><strong>AF - Senhor Kaioh do Oeste</strong></h6>
+                        <R1 id="pr-item4" value="90.00" class="Preco">R$90,00</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -209,9 +213,9 @@
                 <div class="card1-1">
                     <img src="img/ca1.jpeg" class="card-img-top" alt="CamisaMUI">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Camisa - Goku Instinto</strong></h6>
-                        <R1 class="Preco">R$34,99</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item5" class="card-title"><strong>Camisa - Goku Instinto</strong></h6>
+                        <R1 id="pr-item5" value="34.99" class="Preco">R$34,99</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -219,9 +223,9 @@
                 <div class="card1-2">
                     <img src="img/ca2.jpeg" class="card-img-top" alt="GokuOS">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Camisa - Goku Old-Style</strong></h6>
-                        <R1 class="Preco">R$34,99</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item6" class="card-title"><strong>Camisa - Goku Old-Style</strong></h6>
+                        <R1 id="pr-item6" value="34.99" class="Preco">R$34,99</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -229,9 +233,9 @@
                 <div class="card1-3">
                     <img src="img/ca3.jpeg" class="card-img-top" alt="MiraiTrunks">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Camisa - Trunks Futuro</strong></h6>
-                        <R1 class="Preco">R$49,99</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item7" class="card-title"><strong>Camisa - Trunks Futuro</strong></h6>
+                        <R1 id="pr-item7" value="49.99" class="Preco">R$49,99</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -239,9 +243,9 @@
                 <div class="card1-4">
                     <img src="img/ca4.jpeg" class="card-img-top" alt="CamisãoGoku">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Camisão - Goku Unissex</strong></h6>
-                        <R1 class="Preco">R$49,99</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item8" class="card-title"><strong>Camisão - Goku Unissex</strong></h6>
+                        <R1 id="pr-item8" value="49.99" class="Preco">R$49,99</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -263,9 +267,9 @@
                 <div class="card1-1">
                     <img src="img/ace1.jpeg" class="card-img-top" alt="Esferas">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Esferas do dragão</strong></h6>
-                        <R1 class="Preco">R$350,00</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item9" class="card-title"><strong>Esferas do dragão</strong></h6>
+                        <R1 id="pr-item9" value="350.00" class="Preco">R$350,00</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -273,9 +277,9 @@
                 <div class="card1-2">
                     <img src="img/ace2.jpeg" class="card-img-top" alt="Colar">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Colar do dragão</strong></h6>
-                        <R1 class="Preco">R$19,99</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item10" class="card-title"><strong>Colar do dragão</strong></h6>
+                        <R1 id="pr-item10" value="19.99" class="Preco">R$19,99</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -283,9 +287,9 @@
                 <div class="card1-3">
                     <img src="img/ace3.jpeg" class="card-img-top" alt="Pulseira">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Pulseira do Dragão</strong></h6>
-                        <R1 class="Preco">R$10,00</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item11" class="card-title"><strong>Pulseira do Dragão</strong></h6>
+                        <R1 id="pr-item11" value="10.00" class="Preco">R$10,00</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -293,12 +297,38 @@
                 <div class="card1-4">
                     <img src="img/ace4.jpeg" class="card-img-top" alt="Chaveiro">
                     <div class="card-body">
-                        <h6 class="card-title"><strong>Chaveiro - Goku Chibi</strong></h6>
-                        <R1 class="Preco">R$10,00</R1>
-                        <button type="button" class="btn">Adicionar ao Carrinho</button>
+                        <h6 id="nm-item12" class="card-title"><strong>Chaveiro - Goku Chibi</strong></h6>
+                        <R1 id="pr-item12" value="10.00" class="Preco">R$10,00</R1>
+                        <button id="adicionar" type="button" class="btn">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCarrinho" tabindex="-1" role="dialog" aria-labelledby="tituloCarrinho" aria-hidden="true" style="color: black;"> <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-family: 'Russo';" id="tituloCarrinho">Seu Carrinho</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul id="lista-itens" class="list-group list-group-flush">
+                    <li class="list-group-item text-center">Seu carrinho está vazio...</li>
+                </ul>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <h5 style="font-family: 'Russo';">Total:</h5>
+                    <h5 style="font-family: 'OutfitB';" id="valor-total">R$ 0,00</h5>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Continuar comprando</button>
+                <button type="button" class="btn btn-success" onclick="limparCarrinho()">Finalizar Compra</button>
+            </div>
+        </div>
         </div>
     </div>
 
@@ -334,6 +364,12 @@
     
     <!--Script Preloader(Loading)-->
     <script src="script_preloader.js"></script>
+
+    <!--SweetAlert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.3/dist/sweetalert2.all.min.js"></script>
+
+    <!--Carrinho-->>
+    <script src="carrinho.js"></script>
 
 </body>
 </html>
