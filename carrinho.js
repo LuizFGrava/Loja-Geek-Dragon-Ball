@@ -1,4 +1,4 @@
-
+let usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado"));
 let compras = JSON.parse(sessionStorage.getItem("compras")) || [];
 
 atualizarVisualizacao();
@@ -102,26 +102,34 @@ window.removerItem = function(index) {
 }
 
 window.limparCarrinho = function() {
-    if(compras.length === 0) {
-        Swal.fire(
-            {
-                    title: `Seu carrinho ainda está vazio!`,
-                    html: `A compra não pode ser concluída.`,
-                    icon: "error",
 
-            }
+    if (!usuarioLogado) {
+        alert("Você precisa fazer login para adicionar itens ao carrinho!");
+        window.location.href = "cadastro.html"; 
+        return; 
+    
+    } else if (compras.length === 0) {
+    Swal.fire(
+        {
+            title: `Seu carrinho ainda está vazio!`,
+            html: `A compra não pode ser concluída.`,
+            icon: "error",
+        }
     );
         return;
     }
+
+    
     
     Swal.fire(
             {
-                    title: `Compra realizada com sucesso!`,
-                    html: `Obrigado pela preferência, Saiyajin.`,
-                    icon: "success",
+                title: `Compra realizada com sucesso!`,
+                html: `Obrigado pela preferência, Saiyajin.`,
+                icon: "success",
 
             }
     );
+
     compras = [];
     salvarDados();
     atualizarVisualizacao();
